@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="jumbotron text-center">
+    <h3>İTEM yataqxana və kursdakı tələbələrin bal sistemi</h3>
+    <p>Səhifəyə yalnız məsul şəxslər tərəfindən nəzarət edilir.</p>
+</div>
+<p>
+        {% if request.user.is_authenticated %}
+                Giriş edilib, {{request.user.username}}
+        {% else %}
+                Giriş edilmeyib
+        {% endif %}
+
+</p>
+
+{% endblock body %}

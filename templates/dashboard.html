@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>kontrol paneli</h3>
+<hr>
+<p>
+    xos gelmisiniz, <h3>{{request.user.username}}</h3>
+</p>
+
+<!-- <a class = "btn btn-danger" href = "/articles/addarticle">Məqalə əlavə et </a> -->
+
+
+{% if articles %}
+<table>
+          <tbody>
+          
+            <tr>
+              <th>Tələbə adı :</th>
+            {% for article in articles %}
+              <td>
+                {{article.title}}
+              </td>
+            </tr>
+            {% endfor %}
+          
+            <tr>
+              <th>İsdifadeci adi:</th>
+              {% for article in articles %}
+              <td>
+                {{article.author.username}}
+              </td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+              <th>Kurs bali:</th>
+              {% for article in articles %}
+              <td>
+                {{article.content}}
+              </td>
+            </tr>
+            {% endfor %}
+ 
+            <tr>
+              <th>Yataqxana bali:  </th>
+              {% for article in articles %}
+              <td>
+                {{article.content1}}
+              </td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+              <th>Tarix :</th>
+              {% for article in articles %}
+              <td>
+                {{article.created_date}}
+              </td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+              <th>Bal çıxma səbəbi:  </th>
+              {% for article in articles %}
+              <td>
+                {{article.content2}}
+              </td>
+            </tr>
+            {% endfor %}
+          
+            
+
+
+            
+
+          </tbody>
+        </table>
+
+{% else %}
+<div class="alert alert-danger">
+    hec bir meqale yoxdur...
+</div>
+{% endif %}
+
+
+
+
+
+{% endblock body %}
